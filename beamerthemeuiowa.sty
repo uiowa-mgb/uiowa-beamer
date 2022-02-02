@@ -1,4 +1,4 @@
-\RequirePackage{tikz, xcolor}
+\RequirePackage{tikz, xcolor, textpos}
 
 \definecolor{IowaGold}{RGB}{255,205,0}
 \definecolor{IowaGray}{RGB}{99,102,106}
@@ -7,6 +7,7 @@
 \definecolor{IowaRed}{RGB}{189,71,42}
 
 \setbeamercolor*{title page header}{fg=white}
+\setbeamercolor*{title page subtitle}{fg=IowaGold}
 \setbeamercolor*{author}{fg=white}
 \setbeamercolor*{date}{fg=white}
 
@@ -14,9 +15,12 @@
 \setbeamertemplate{background}{
   \begin{tikzpicture}
   \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-    \fill[color=black] (0,0) rectangle(\the\paperwidth, \the\paperheight);
-    \begin{scope}[yscale=-1, xscale=-1, xshift=-\the\paperwidth, yshift=-\the\paperheight]
-      \node [inner sep=0pt, anchor=north east] at (0.5,0) {\includegraphics[width=80pt]{iowa.pdf}};
+  \fill[color=black] (0,0) rectangle(\the\paperwidth, \the\paperheight);
+  \begin{scope}[yscale=-1, xscale=-1, xshift=-\the\paperwidth, yshift=-\the\paperheight]
+    \node [inner sep=0pt, anchor=north east] at (0.5,0) {\includegraphics[width=80pt]{iowa.pdf}};
+  \end{scope}
+  \begin{scope}[yscale=-1, yshift=-\the\paperheight]
+    \fill[color=IowaGold] (1,2.75) rectangle (2,2.84);
   \end{scope}
 
   \ifnum\thepage>1\relax%
@@ -27,6 +31,33 @@
   \end{tikzpicture}
 }
 
+\defbeamertemplate*{title page}{uiowa}[1][]
+{
+  \begin{textblock*}{10cm}(0pt,-40pt)
+    \begin{beamercolorbox}{author}
+    \insertauthor
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{10cm}(0pt,0pt)
+    \begin{beamercolorbox}{title page header}
+      \Huge
+      \bf
+      \inserttitle
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{10cm}(0pt,80pt)
+    \begin{beamercolorbox}{title page subtitle}
+      \large\textbf{\insertsubtitle}
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{10cm}(0pt,100pt)
+    \begin{beamercolorbox}{date}
+      \large
+      \insertdate
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+
 
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{blocks}[rounded][shadow=true]  
+\setbeamertemplate{blocks}[rounded][shadow=false]
