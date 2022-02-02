@@ -2,12 +2,30 @@
 
 \RequirePackage{tikz}
 
-% Settings
-\useinnertheme{uiowa}
-\useoutertheme{uiowa}
-\usecolortheme{uiowa}
+
+
+
+\setbeamercolor*{title page header}{fg=white}
+\setbeamercolor*{author}{fg=white}
+\setbeamercolor*{date}{fg=white}
+
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[color=black] (0,0) rectangle(\the\paperwidth, \the\paperheight);
+    \begin{scope}[yscale=-1, xscale=-1, xshift=-\the\paperwidth, yshift=-\the\paperheight]
+      \node [inner sep=0pt, anchor=north east] at (0.5,0) {\includegraphics[width=80pt]{iowa.pdf}};
+  \end{scope}
+
+  \ifnum\thepage>1\relax%
+    \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[black,opacity=1] (0,0) rectangle(\the\paperwidth, 0.625);
+    \node [inner sep=0pt, anchor=south west] at (1,0) {\includegraphics[width=60pt]{iowa.pdf}};
+  \fi
+  \end{tikzpicture}
+}
+
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]  
-
-\mode<all>
