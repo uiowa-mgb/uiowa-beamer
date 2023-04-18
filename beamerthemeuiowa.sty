@@ -6,58 +6,111 @@
 \definecolor{IowaGreen}{RGB}{0,102,79}
 \definecolor{IowaRed}{RGB}{189,71,42}
 
+\setbeamertemplate{section in toc}[circle]
+\setbeamercolor{section number projected}{fg=black}
+\setbeamercolor{section in toc}{fg=black}
+
 \setbeamercolor*{title page header}{fg=white}
 \setbeamercolor*{title page subtitle}{fg=IowaGold}
 \setbeamercolor*{author}{fg=white}
 \setbeamercolor*{date}{fg=white}
 
+\setbeamercolor{block title}{bg=IowaGray, fg=white}
+\setbeamercolor{block body}{bg=IowaGray!20}
+\setbeamercolor{block title example}{bg=IowaGray, fg=white}
+\setbeamercolor{block body example}{bg=IowaGray!20}
+\setbeamerfont{block title}{series=\bfseries}
+
+\setbeamercolor{itemize item}{fg = IowaGold}
+\setbeamercolor{itemize subitem}{fg = IowaGold}
+\setbeamercolor{itemize subsubitem}{fg = IowaGold}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}{\tiny\raise0.2em\hbox{$\blacksquare$}}
+
+\setbeamerfont{enumerate item}{series=\bfseries}
+\setbeamerfont{enumerate subitem}{series=\bfseries}
+\setbeamercolor{enumerate item}{fg = black}
+\setbeamercolor{enumerate subitem}{fg = black}
+\setbeamercolor{item projected}{bg = IowaGold}
+% \setbeamertemplate{enumerate subitem}[circle]
+
+% \setbeamertemplate{subsection in toc}
+% {\scriptsize\leavevmode\leftskip=2em\raise0.1em\hbox{$\bullet$}\hskip1em\parbox[t]{\textwidth-\leftskip-2em}{\inserttocsubsection}\vspace*{0ex}\par}
 
 \setbeamertemplate{background}{
-  \begin{tikzpicture}
-  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-  \fill[color=black] (0,0) rectangle(\the\paperwidth, \the\paperheight);
-  \begin{scope}[yscale=-1, xscale=-1, xshift=-\the\paperwidth, yshift=-\the\paperheight]
-    \node [inner sep=0pt, anchor=north east] at (0.5,0) {\includegraphics[width=80pt]{iowa.pdf}};
-  \end{scope}
-  \begin{scope}[yscale=-1, yshift=-\the\paperheight]
-    \fill[color=IowaGold] (1,2.75) rectangle (2,2.84);
-  \end{scope}
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		\fill[color=black] (0,0) rectangle(\the\paperwidth, \the\paperheight);
+		\begin{scope}[yscale=-1, xscale=-1, xshift=-\the\paperwidth, yshift=-\the\paperheight]
+			\node [inner sep=0pt, anchor=north east] at (0.5,0) {\includegraphics[width=80pt]{iowa.pdf}};
+		\end{scope}
+		\begin{scope}[yscale=-1, yshift=-\the\paperheight]
+			\fill[color=IowaGold] (1,2.75) rectangle (2,2.84);
+		\end{scope}
 
-  \ifnum\thepage>1\relax%
-    \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-    \fill[black,opacity=1] (0,0) rectangle(\the\paperwidth, 0.625);
-    \node [inner sep=0pt, anchor=south west] at (1,0) {\includegraphics[width=60pt]{iowa.pdf}};
-  \fi
-  \end{tikzpicture}
+		\ifnum\thepage>1\relax%
+			\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+			\fill[black,opacity=1] (0,0) rectangle(\the\paperwidth, 0.625);
+			\node [inner sep=0pt, anchor=south west] at (1,0) {\includegraphics[width=50pt]{iowa.pdf}};
+		\fi
+	\end{tikzpicture}
 }
 
 \defbeamertemplate*{title page}{uiowa}[1][]
 {
-  \begin{textblock*}{10cm}(0pt,-40pt)
-    \begin{beamercolorbox}{author}
-    \insertauthor
-    \end{beamercolorbox}
-  \end{textblock*}
-  \begin{textblock*}{10cm}(0pt,0pt)
-    \begin{beamercolorbox}{title page header}
-      \Huge
-      \bf
-      \inserttitle
-    \end{beamercolorbox}
-  \end{textblock*}
-  \begin{textblock*}{10cm}(0pt,80pt)
-    \begin{beamercolorbox}{title page subtitle}
-      \large\textbf{\insertsubtitle}
-    \end{beamercolorbox}
-  \end{textblock*}
-  \begin{textblock*}{10cm}(0pt,100pt)
-    \begin{beamercolorbox}{date}
-      \large
-      \insertdate
-    \end{beamercolorbox}
-  \end{textblock*}
+	\begin{textblock*}{10cm}(0pt,-40pt)
+		\begin{beamercolorbox}{author}
+			\insertauthor%
+		\end{beamercolorbox}
+	\end{textblock*}
+	\begin{textblock*}{10cm}(0pt,0pt)
+		\begin{beamercolorbox}{title page header}
+			\Huge
+			\bf
+			\inserttitle%
+		\end{beamercolorbox}
+	\end{textblock*}
+	\begin{textblock*}{10cm}(0pt,80pt)
+		\begin{beamercolorbox}{title page subtitle}
+			\large\textbf{\insertsubtitle}
+		\end{beamercolorbox}
+	\end{textblock*}
+	\begin{textblock*}{10cm}(0pt,110pt)
+		\begin{beamercolorbox}{date}
+			\large
+			\insertdate%
+		\end{beamercolorbox}
+	\end{textblock*}
 }
-
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=false]
+
+\setbeamercolor{frametitle}{bg=black, fg=white}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{frametitle}{
+	\nointerlineskip%
+	\begin{beamercolorbox}[sep=0.3cm, ht=1.8em, wd=\paperwidth]{frametitle}
+		\vbox{}\vskip-2ex%
+		\strut\insertframetitle\strut%
+		\vskip-0.8ex%
+	\end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{
+	\hbox{%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1.5ex,leftskip=2ex,rightskip=2ex]{page footer}%
+			\color{IowaGold}
+			\hfill{\scriptsize\bfseries\insertsection}%
+		\end{beamercolorbox}
+	}%
+}
+
+\setbeamertemplate{footnote}{
+	\raisebox{0.85cm}{\insertfootnotemark}
+	\raisebox{0.85cm}{\parbox[t][0cm]{7.5cm}{
+			\insertfootnotetext%
+		}%
+	}
+}
