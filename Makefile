@@ -3,10 +3,17 @@ THEME=beamerthemeuiowa.sty
 
 ALL=$(THEME) $(EXAMPLE)
 
-all: out/example.pdf
+all: release
 
 out/%.pdf: %.tex $(THEME)
+	mkdir -p out
 	latexmk --pdfxe $<
+
+out/example.zip: $(ALL)
+	mkdir -p out
+	zip $@ $^
+
+release: out/example.zip out/example.pdf## Prepare a release for github
 
 clean: ## Remove build artifacts
 	rm -rf out

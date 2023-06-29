@@ -35,6 +35,7 @@
         pkgs.scons
         pkgs.glow # make help text prettier
         pkgs.inotify-tools # watches for changes
+        pkgs.zip
         pkgs.gnumake
       ];
 
