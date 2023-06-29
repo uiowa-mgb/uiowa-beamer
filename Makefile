@@ -1,11 +1,12 @@
 EXAMPLE=example.tex
 THEME=beamerthemeuiowa.sty
+LOGO=iowa.pdf
 
-ALL=$(THEME) $(EXAMPLE)
+ALL=$(THEME) $(EXAMPLE) $(LOGO)
 
 all: release
 
-out/%.pdf: %.tex $(THEME)
+out/%.pdf: %.tex $(ALL)
 	mkdir -p out
 	latexmk --pdfxe $<
 
