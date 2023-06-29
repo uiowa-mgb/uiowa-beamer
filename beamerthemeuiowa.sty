@@ -33,10 +33,9 @@
 \setbeamercolor{enumerate item}{fg = black}
 \setbeamercolor{enumerate subitem}{fg = black}
 \setbeamercolor{item projected}{bg = IowaGold}
-% \setbeamertemplate{enumerate subitem}[circle]
 
-% \setbeamertemplate{subsection in toc}
-% {\scriptsize\leavevmode\leftskip=2em\raise0.1em\hbox{$\bullet$}\hskip1em\parbox[t]{\textwidth-\leftskip-2em}{\inserttocsubsection}\vspace*{0ex}\par}
+\newlength{\footerheight}
+\setlength{\footerheight}{0.625cm}
 
 \setbeamertemplate{background}{
 	\begin{tikzpicture}
@@ -51,7 +50,7 @@
 
 		\ifnum\thepage>1\relax%
 			\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-			\fill[black,opacity=1] (0,0) rectangle(\the\paperwidth, 0.625);
+			\fill[black,opacity=1] (0,0) rectangle(\the\paperwidth, \footerheight);
 			\node [inner sep=0pt, anchor=south west] at (1,0) {\includegraphics[width=50pt]{iowa.pdf}};
 		\fi
 	\end{tikzpicture}
@@ -100,7 +99,7 @@
 
 \setbeamertemplate{footline}{
 	\hbox{%
-		\begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1.5ex,leftskip=2ex,rightskip=2ex]{page footer}%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=14pt,dp=7pt,leftskip=2ex,rightskip=2ex]{page footer}%
 			\color{IowaGold}
 			\hfill{\scriptsize\bfseries\insertsection}%
 		\end{beamercolorbox}
